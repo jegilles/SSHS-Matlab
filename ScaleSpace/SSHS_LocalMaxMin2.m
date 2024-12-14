@@ -42,28 +42,20 @@ for i=2:length(f)-1
     if ((f(i-1)<f(i)) && (f(i)>f(i+1)))
         locmax(i)=f(i);
     end
-    
-%     if ((f2(i-1)>f2(i)) && (f2(i)<f2(i+1)))
-%         locmin(i)=f2(i);
-%     end
 end
-
 
 i=2;
 while i<length(f2)-1
     if ((f2(i-1)>f2(i)) && (f2(i)<f2(i+1)))
         locmin(i)=f2(i);
-        %disp('One minimum');
         i=i+1;
     elseif ((f2(i-1)>f2(i)) && (f2(i)==f2(i+1)))
         i0=i;
-        %i=i+1;
         while (i<length(f2)-1) && (f2(i)==f2(i+1))
             i=i+1;
         end
         if f2(i)<f2(i+1) %it is the end of a "flat" minimum
             locmin(round((i0+i)/2))=f2(round((i0+i)/2));
-            %disp('one flat minimum');
         end
         i=i+1;
     else

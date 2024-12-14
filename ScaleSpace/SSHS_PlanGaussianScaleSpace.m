@@ -19,7 +19,7 @@ function plane=SSHS_PlanGaussianScaleSpace(f)
 n=4;
 t=1.6;%initial scale
 Niter=ceil(length(f)/n);
-ker=besseli(-n:n,t,1);%discrete Gauusian kernel
+ker=besseli(-n:n,t,1); %discrete Gauusian kernel
 plane=sparse(false(length(f),Niter+1));%scale space
 bounds=SSHS_LocalMaxMin2(f,-1);
 plane(bounds)=true;
@@ -33,8 +33,4 @@ for i=1:Niter
     if N(i+1)==1
         break
     end
-end
-%whos('plane');
-%figure;imshow(plane);title('Scale-space minima');
-%figure;plot(N/sum(N));title('Number of minima');
 end
